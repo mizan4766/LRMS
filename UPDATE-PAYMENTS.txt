@@ -1,0 +1,18 @@
+LARMS2 update: deposit verification step (22.1), payment gateway placeholder, payment register + CSV
+-----------------------------------------------------------------------------------------------
+Run these in the folder that contains backend\ and this update's backend-overlay\ and frontend-dist\ folders
+(for example D:\DDC_M\Land\larms2 after unzipping this update over the project; files are overwritten).
+
+  cd /d D:\DDC_M\Land\larms2\backend
+  xcopy ..\backend-overlay\* . /E /Y /I
+  xcopy ..\frontend-dist\* public\app\ /E /Y /I
+  php artisan config:clear
+  php artisan db:seed
+  php artisan larms:simulate
+  php artisan serve --host=127.0.0.1 --port=8000
+
+- No migration is needed. "db:seed" only adds the new accounts-officer user (LAND7000001 / Land1234); it does not delete data.
+- larms:simulate must end with:  passed: 38, failed: 0
+- Applications already waiting at step 22/23 keep working: the next deposit goes through step 22.1 (LAND7000001 verifies).
+  An application that is ALREADY past step 22 is not affected.
+- Press Ctrl+F5 in the browser after the update.
