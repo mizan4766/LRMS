@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('health', fn () => ['ok' => true, 'time' => now()->toDateTimeString()]);
 Route::post('auth/login', [AuthController::class, 'login']);
 
+// Public login-page assistant (rate-limited, read-only)
+Route::get('chat/start', [\App\Http\Controllers\Api\ChatController::class, 'start'])->middleware('throttle:40,1');
+Route::post('chat', [\App\Http\Controllers\Api\ChatController::class, 'ask'])->middleware('throttle:40,1');
+
 Route::middleware('api.token')->group(function () {
     Route::get('auth/me', [AuthController::class, 'me']);
     Route::post('auth/logout', [AuthController::class, 'logout']);
