@@ -36,7 +36,7 @@ class KnowledgeBase
     {
         $flags = implode("\n", array_map(fn ($t) => '• ' . $t, $att['flags'] ?? []));
         return [
-            ['id' => 'greeting', 'title' => 'শুভেচ্ছা', 'keys' => ['হ্যালো', 'হাই', 'সালাম', 'আসসালামু', 'নমস্কার', 'hello', 'hi ', 'hey', 'good morning'],
+            ['id' => 'greeting', 'title' => 'শুভেচ্ছা', 'keys' => ['হ্যালো', 'হাই', 'সালাম', 'আসসালামু', 'hello', 'hi ', 'hey', 'good morning'],
                 'bn' => 'আসসালামু আলাইকুম! আমি LARMS সহায়ক। আবেদন, কাগজপত্র, ধাপ, সময়সীমা বা লগইন নিয়ে প্রশ্ন করুন।', 'en' => 'Hello! I am the LARMS assistant. Ask me about applying, documents, steps, deadlines or login.', 'next' => ['how_apply', 'docs_govt', 'steps']],
             ['id' => 'what_is', 'title' => 'LARMS কী', 'keys' => ['larms', 'এই সফটওয়্যার', 'সিস্টেম কী', 'কী এটা', 'কি এটা', 'what is', 'about', 'সফটওয়্যার কী', 'এই সিস্টেম'],
                 'bn' => 'LARMS হলো স্থাবর সম্পত্তি অধিগ্রহণ ও হুকুমদখল আইন, ২০১৭ এবং বিধিমালা, ২০২৬ অনুযায়ী ভূমি অধিগ্রহণের আবেদন, যাচাই, নোটিশ, ক্ষতিপূরণ নির্ধারণ, জমা ও পরিশোধ এবং গেজেট পর্যন্ত পুরো কাজ অনলাইনে পরিচালনার সিস্টেম।', 'en' => 'LARMS manages land acquisition under the Acquisition and Requisition of Immovable Property Act 2017 and the Rules 2026: application, verification, notices, compensation, deposit, payment and gazette.', 'next' => ['how_apply', 'steps', 'roles']],
